@@ -5,6 +5,10 @@ body {
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     color: #1e272e; overflow-x: hidden; line-height: 1.6; 
+    /* Ép chân trang xuống đáy */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 @keyframes gradientBG { 0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;} }
 
@@ -26,7 +30,7 @@ body {
 .welcome-overlay.hidden { opacity: 0; visibility: hidden; transform: scale(1.05); }
 
 /* ================= MENU & DROPDOWN THÔNG BÁO ================= */
-nav { display: flex; justify-content: space-between; align-items: center; background-color: rgba(45, 52, 54, 0.85); backdrop-filter: blur(10px); padding: 15px 30px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.3); border-bottom: 1px solid rgba(255,255,255,0.1); }
+nav { display: flex; justify-content: space-between; align-items: center; background-color: #2d3436; padding: 15px 30px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border-bottom: 1px solid #4a5459; }
 .nav-links a { color: white; text-decoration: none; font-weight: bold; margin: 0 10px; padding: 8px 15px; border-radius: 5px; transition: 0.3s; text-transform: uppercase; font-size: 14px; }
 .nav-links a:hover, .nav-links a.active { background-color: #d63031; color: #ffeaa7; box-shadow: 0 0 10px rgba(214, 48, 49, 0.5);}
 .nav-icons { display: flex; align-items: center; position: relative;}
@@ -51,7 +55,8 @@ nav { display: flex; justify-content: space-between; align-items: center; backgr
 .noti-footer:hover { background: #ffeaa7; }
 
 /* ================= TRANG CHUNG ================= */
-.container { max-width: 1200px; margin: 80px auto; padding: 0 20px; }
+/* Flex-grow cho phép nội dung bung ra đẩy chân trang xuống */
+.container { max-width: 1200px; margin: 80px auto; padding: 0 20px; flex-grow: 1; width: 100%; }
 .section-title { font-size: 32px; color: #1e272e; margin-bottom: 25px; font-weight: 900; display: flex; align-items: center; gap: 12px; text-transform: uppercase; letter-spacing: 1px;}
 .section-title::before { content: ''; display: inline-block; width: 8px; height: 32px; background: #d63031; border-radius: 4px; }
 .section-title-main { color: #d63031; font-size: 36px; margin-bottom: 15px; text-transform: uppercase; font-weight: 800; letter-spacing: 1px; text-align: center;}
@@ -59,10 +64,10 @@ nav { display: flex; justify-content: space-between; align-items: center; backgr
 .subtitle { font-size: 18px; color: #636e72; margin-bottom: 50px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8; text-align: center;}
 .subtitle-center { text-align: center; color: #636e72; font-size: 19px; max-width: 800px; margin: 0 auto 40px auto; line-height: 1.7; font-weight: 500;}
 
-/* Đóng gói chung để Giỏ hàng & Lịch sử dùng an toàn */
 .page-title-cart { font-size: 36px; color: #d63031; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 30px; text-align: center;}
 .page-title-history { font-size: 32px; color: #2d3436; font-weight: 900; text-transform: uppercase; margin-bottom: 30px; text-align: center; border-bottom: 3px solid #d63031; padding-bottom: 10px; display: inline-block; margin-left: 50%; transform: translateX(-50%);}
 
+/* ================= TRANG CHỦ ================= */
 .slider-wrapper { padding: 0; background-color: #1a1a1a; }
 .slider-container { position: relative; width: 100%; margin: 0 auto; overflow: hidden; }
 .slides { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); width: 100%; }
@@ -85,7 +90,7 @@ nav { display: flex; justify-content: space-between; align-items: center; backgr
 .trust-badges { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
 .trust-badge { background: rgba(255,255,255,0.2); backdrop-filter: blur(5px); padding: 10px 25px; border-radius: 30px; font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.3); color: white;}
 
-/* ================= TRANG DỊCH VỤ ================= */
+/* ================= TRANG DỊCH VỤ & QUÀ LƯU NIỆM ================= */
 .page-header { position: relative; height: 60vh; min-height: 400px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; overflow: hidden; margin-bottom: 50px; background: url('img_dichvu/banner_captreo.jpg') center center/cover no-repeat; }
 .page-header.souvenir-bg { height: 50vh; min-height: 350px; margin-bottom: 40px; background-image: url('img_qualuuniem/qualuuniem.jpg'); }
 .header-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 0; }
@@ -174,7 +179,7 @@ nav { display: flex; justify-content: space-between; align-items: center; backgr
 .btn-buy-now:hover { background: #c0392b; transform: translateY(-3px) scale(1.05); box-shadow: 0 10px 20px rgba(214, 48, 49, 0.4); }
 @keyframes shake { 0%, 100% { transform: rotate(10deg); } 50% { transform: rotate(5deg) scale(1.05); } }
 
-/* ================= TRANG CHỦ & CẨM NANG ================= */
+/* ================= TRANG CHỦ CÁC PHẦN KHÁC ================= */
 .about-section { display: flex; gap: 60px; align-items: center; margin-bottom: 120px; flex-wrap: wrap; margin-top: 50px;}
 .creative-images-group { flex: 1; min-width: 350px; position: relative; height: 450px; padding-right: 20px;}
 .about-img-1 { position: absolute; top: 0; left: 0; width: 320px; height: 320px; object-fit: cover; border-radius: 24px; z-index: 1; box-shadow: 0 15px 30px rgba(0,0,0,0.1); transition: transform 0.5s ease;}
@@ -467,10 +472,11 @@ details[open] summary::after { content: '−'; background: #d63031; color: white
 .floating-btn { bottom: 30px; font-size: 32px;}
 .floating-btn:hover, .floating-phone:hover { background-color: #128C7E; transform: scale(1.1);}
 
-/* CHÂN TRANG */
-footer { background-color: #2d3436; color: #b2bec3; text-align: center; padding: 30px 20px 100px 20px; font-size: 15px; margin-top: 60px; border-top: 6px solid #d63031; }
+/* CHÂN TRANG - CỐ ĐỊNH XUỐNG ĐÁY */
+footer { background-color: #2d3436; color: #b2bec3; text-align: center; padding: 25px 20px; font-size: 15px; margin-top: auto; border-top: 6px solid #d63031; }
 footer p { margin-bottom: 0; } 
 footer strong { color: #ffeaa7; }
+body:has(.sticky-booking-bar) footer { padding-bottom: 100px; }
 
 /* POPUP MODAL ĐƯỢC CĂN CHỈNH */
 .modal-overlay { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(8px); opacity: 0; transition: opacity 0.3s ease; }
@@ -535,7 +541,8 @@ footer strong { color: #ffeaa7; }
     .sticky-text { text-align: center; }
     .sticky-text strong { font-size: 20px; }
     .sticky-btn { padding: 10px 25px; font-size: 14px; width: 100%; box-sizing: border-box;}
-    footer { padding-bottom: 120px; }
+    
+    body:has(.sticky-booking-bar) footer { padding-bottom: 120px; }
 
     .creative-images-group { height: 400px;}
     .about-img-1 { width: 280px; height: 280px;}
